@@ -40,4 +40,3 @@ public void keyPressed()
  if (key == ' ')
   ship.hyperspace();
 }
-
