@@ -37,6 +37,6 @@ public void keyPressed()
   ship.accelerate(-.5);
  if (key=='d')
   ship.turn(10);
- if (key == ' ')
+ if (key == 'h')
   ship.hyperspace();
 }
