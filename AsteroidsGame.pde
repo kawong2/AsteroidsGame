@@ -24,8 +24,7 @@ public void draw()
   for (int i = 0; i < blob.size(); i++) {
     blob.get(i).move();
     blob.get(i).show();
-    float myDist = dist((float)blob.get(i).getX(), (float)blob.get(i).getY(), (float)ship.getCenterY(), (float)ship.getYspeed());
-    if (myDist < 20) {
+    if (dist((float)blob.get(i).getX(), (float)blob.get(i).getY(), (float)ship.getCenterX(), (float)ship.getCenterY())< 20){
       blob.remove(i);
     }
 
