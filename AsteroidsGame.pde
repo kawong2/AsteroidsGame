@@ -1,6 +1,7 @@
 //your variable declarations here
 Spaceship ship = new Spaceship();
 Star[] sr = new Star[275];
+ArrayList<Asteroid> blob = new ArrayList<Asteroid>();
 public void setup()
 {
  size(500,500);
@@ -8,6 +9,9 @@ public void setup()
  for (int i = 0; i < sr.length; i++) 
  {
   sr[i] = new Star();
+  }
+  for(int i = 0; i < 26; i++){
+    blob.add(new Asteroid());
   }
 }
 
@@ -17,14 +21,19 @@ public void draw()
  for (int i = 0; i < sr.length; i++) {
  sr[i].show();
 }
+  for (int i = 0; i < blob.size(); i++) {
+    blob.get(i).move();
+    blob.get(i).show();
+    float myDist = dist((float)blob.get(i).getX(), (float)blob.get(i).getY(), (float)ship.getCenterY(), (float)ship.getYspeed());
+    if (myDist < 20) {
+      blob.remove(i);
+    }
+
+}
  color(255);
- text("Center X: " + ship.myCenterX, 25, 30);
- text("Center Y: " + ship.myCenterY, 25, 45);
- text("Speed X: " + ship.myXspeed, 25, 60);
- text("Speed Y: " + ship.myYspeed, 25, 75);
- text("Direction: " + ship.myPointDirection, 25, 90);
  ship.move();
  ship.show();
+ 
 }
 
 public void keyPressed()
